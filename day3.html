@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3</title>
+    <style>
+      .card {
+        font-size: 16px;
+      }
+
+      .thead1 {
+        background-color: #fe6666;
+        color: white;
+      }
+
+      .table1 {
+        border-collapse: collapse;
+        background-color: blue; 
+        color: white;
+      }
+
+      .card1 {
+        margin: 20px;
+        background-color: orange;
+        color: white;
+        border-radius: 10px;
+        padding: 20px;
+      }
+
+      .size{
+        font-size: 20px;
+        height: 300px;
+        width: 50%;
+        text-align: center;
+      }
+
+      .card2 {
+        margin: 20px;
+        background-color: green;
+        color: white;
+        border-radius: 10px;
+        padding: 20px;
+      }
+
+      .students{
+        font-size: 18px;
+        color: white;
+        background-color: chartreuse;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- parent/child -->
+    <div class="card1 size">
+      <h1>About Me</h1>
+      <p>I like coding.</p>
+    </div>
+
+    <div class="card2">
+      <h1>About Me</h1>
+      <p>I like coding.</p>
+    </div>
+
+    <!-- list -->
+    <div class="card1">
+        <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ol>
+    
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+    </div>
+
+    <!-- Table -->  
+     <div class="card1 size">
+         <table border="1" width="50%" cellpadding="5" align="center" class="table1" id="std_table2" >
+             <thead class="thead1">
+                 <tr>
+                     <th>Name</th>
+                     <th>Age</th>
+                     <th>City</th>
+                     <th>Country</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr>
+                     <td>Joshua</td>
+                     <td>18</td>
+                     <td>New York</td>
+                     <td>USA</td>
+                 </tr>
+                 <tr>
+                     <td>Jane</td>
+                     <td>25</td>
+                     <td>London</td>
+                     <td>UK</td>
+                 </tr>
+                 <tr>
+                     <td>Ali</td>
+                     <td>30</td>
+                     <td>Dubai</td>
+                     <td>UAE</td>
+                 </tr>
+             </tbody>
+             <tfoot>
+                 <tr>
+                     <td colspan="4">This is the footer of the table.</td>
+                 </tr>
+             </tfoot>
+         </table>
+     </div>
+
+     <div class="card1 size">
+        <button onclick="toggleTable()">Toggle Table</button>
+         <table border="1" width="50%" cellpadding="5" align="center" class="students" id="std_table">
+             <thead>
+                 <tr>
+                     <th>Name</th>
+                     <th>Age</th>
+                     <th>City</th>
+                     <th>Country</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr>
+                     <td>Joshua</td>
+                     <td>18</td>
+                     <td>New York</td>
+                     <td>USA</td>
+                 </tr>
+                 <tr>
+                     <td>Jane</td>
+                     <td>25</td>
+                     <td>London</td>
+                     <td>UK</td>
+                 </tr>
+                 <tr>
+                     <td>Ali</td>
+                     <td>30</td>
+                     <td>Dubai</td>
+                     <td>UAE</td>
+                 </tr>
+             </tbody>
+             <tfoot>
+                 <tr>
+                     <td colspan="4">This is the footer of the table.</td>
+                 </tr>
+             </tfoot>
+         </table>
+     </div>
+
+     <script>
+        function toggleTable() {
+          const table = document.getElementById('std_table');
+          if (table.style.display === 'none') {
+            table.style.display = 'table';
+          } else {
+            table.style.display = 'none';
+          }
+        }
+     </script>
+  </body>
+</html>

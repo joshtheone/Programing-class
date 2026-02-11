@@ -1,0 +1,106 @@
+/* Basic reset */
+* { box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f6f6f6;
+  color: #222;
+}
+
+.header {
+  padding: 28px;
+  text-align: center;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+#page-title {
+  margin: 0;
+  font-size: 38px;
+}
+
+.subtitle {
+  margin: 8px 0 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #e3e3e3;
+}
+
+.text-muted {
+  color: #666;
+}
+
+.highlight {
+  color: #ff6324;
+  font-weight: bold;
+}
+
+#about {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.skills {
+  padding-left: 18px;
+  margin: 6px 0 0;
+}
+
+.projects-grid {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.project {
+  border: 1px solid #eee;
+  padding: 12px;
+  border-radius: 10px;
+  flex: 1;
+  min-width: 220px;
+}
+
+.form {
+  display: grid;
+  gap: 8px;
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.btn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #ff6324;
+  color: white;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.footer {
+  text-align: center;
+  padding: 18px;
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First Website</title>
+    <style>
+      body {
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        padding: 24px;
+      }
+
+      h1 {
+        margin-bottom: 6px;
+      }
+
+      button {
+        padding: 10px 14px;
+        border: none;
+        background: #03034a;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello, I'm Joshua</h1>
+    <p>
+      This is my first website. Today I'm learning HTML, CSS, and JavaScript.
+    </p>
+
+    <img src="golf.jpg" alt="VW Golf" />
+
+    <p>
+      Visit my favorite website:
+      <a href="about.html">about page</a>
+      <a href="https://www.wikipedia.org" target="_blank">Wikipedia</a>
+    </p>
+
+    <button onclick="sayHello('josh')">Click me</button>
+    <button onclick="sayHello('user')">submit</button>
+
+    <script>
+      function sayHello(name) {
+        alert("Welcome to my website, " + name + "!");
+      }
+    </script>
+  </body>
+</html>
