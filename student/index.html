@@ -1,85 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Portfolio</title>
-  <link rel="stylesheet" href="index.css">
-  
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portfolio</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
 
-<body>
-  <!-- Parent: header, Child: h1 + p -->
-  <header class="header">
-    <h1 id="page-title">My Portfolio</h1>
-    <p class="subtitle">Learning websites: HTML + CSS</p>
-  </header>
+  <body>
 
-  <!-- Parent: main -->
-  <main class="container">
-
-    <!-- Parent: section, Child: img + div -->
-    <section class="card" id="about">
-      <img class="avatar" src="https://picsum.photos/180" alt="Profile photo">
-      <div class="info">
-        <h2>About Me</h2>
-        <p class="text-muted">
-          Hi! My name is <span class="highlight">[Your Name]</span>. I’m learning web development.
-        </p>
-
-        <!-- Parent: ul, Child: li -->
-        <h3>Skills</h3>
-        <ul class="skills">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>Problem Solving</li>
-        </ul>
+    <nav class="top-nav">
+      <div class="logo">
+        <h1 class="nav-title">My Portfolio</h1>
       </div>
-    </section>
 
-    <!-- Projects -->
-    <section class="card" id="projects">
-      <h2>My Projects</h2>
-
-      <!-- Parent: div.projects-grid, Children: div.project -->
-      <div class="projects-grid">
-        <div class="project">
-          <h3>Project 1</h3>
-          <p class="text-muted">A simple web page with text and images.</p>
-        </div>
-
-        <div class="project">
-          <h3>Project 2</h3>
-          <p class="text-muted">A page with a button and styling.</p>
-        </div>
-
-        <div class="project">
-          <h3>Project 3</h3>
-          <p class="text-muted">My first portfolio website.</p>
-        </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </div>
-    </section>
 
-    <!-- Contact -->
-    <section class="card" id="contact">
-      <h2>Contact Me</h2>
+      <div class="">
+        <button class="btn">Login</button>
+      </div>
+    </nav>
 
-      <!-- Parent: form, Child: label/input/textarea/button -->
-      <form class="form">
-        <label>Name</label>
-        <input class="input" type="text" placeholder="Your name">
+   
+    <!-- Parent: header, Child: h1 + p -->
+    <header class="header">
+      <h1 id="page-title">My Portfolio</h1>
+      <p class="subtitle">Learning websites: HTML + CSS</p>
+    </header>
 
-        <label>Message</label>
-        <textarea class="input" rows="4" placeholder="Write your message"></textarea>
+    <!-- Parent: main -->
+    <main class="container">
+      <!-- Parent: section, Child: img + div -->
+      <section class="card" id="about">
+        <img
+          class="avatar"
+          src="https://picsum.photos/180"
+          alt="Profile photo"
+        />
+        <div class="info">
+          <h2>About Me</h2>
+          <p class="text-muted">
+            Hi! My name is <span class="highlight">[Your Name]</span>. I’m
+            learning web development.
+          </p>
 
-        <button class="btn" type="button">Send</button>
-      </form>
-    </section>
+          <!-- Parent: ul, Child: li -->
+          <h3>Skills</h3>
+          <ul class="skills">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Problem Solving</li>
+          </ul>
+        </div>
+      </section>
 
-  </main>
+      <!-- Projects -->
+      <section class="card" id="projects">
+        <h2>My Projects</h2>
 
-  <footer class="footer">
-    <p class="text-muted">© 2026 Student Portfolio</p>
-  </footer>
-</body>
+        <!-- Parent: div.projects-grid, Children: div.project -->
+        <div class="projects-grid">
+          <div class="project">
+            <h3>Project 1</h3>
+            <p class="text-muted">A simple web page with text and images.</p>
+          </div>
+
+          <div class="project">
+            <h3>Project 2</h3>
+            <p class="text-muted">A page with a button and styling.</p>
+          </div>
+
+          <div class="project">
+            <h3>Project 3</h3>
+            <p class="text-muted">My first portfolio website.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="card" id="contact">
+        <h2>Contact Me</h2>
+
+        <!-- Parent: form, Child: label/input/textarea/button -->
+        <form class="form">
+          <label>Name</label>
+          <input class="input" type="text" placeholder="Your name" />
+
+          <label>Message</label>
+          <textarea
+            class="input"
+            rows="4"
+            placeholder="Write your message"
+          ></textarea>
+
+          <button class="btn" type="button">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="text-muted">© 2026 Student Portfolio</p>
+    </footer>
+  </body>
 </html>
