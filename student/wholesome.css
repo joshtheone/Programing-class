@@ -4,6 +4,9 @@ body{
 }
 
 .header{
+  position: fixed;
+  top: 5;
+  width: 100%;
   display: flex;
   Justify-content:space-between ;
   align-items: center;
@@ -57,22 +60,76 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 7.7px;
+  padding: 9px;
 
   border: none;
 }
  
 .search-block{
-   background-color: rgb(251, 255, 0);
-  border-bottom-right-radius: 6px;
-  border-top-right-radius: 6px; 
+   background-color: rgb(181, 40, 40);
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px; 
 }
 
 .btn-red{
     background-color: rgb(181, 40, 40);
-    color: aliceblue;
+    color: black;
 }
 
 .icon {
   font-size: 20px;
+}
+
+
+.sticky{
+  position: sticky;
+  top: 48px;
+  background-color: lightgreen;
+  padding: 5px;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-btn {
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.side-bar {
+  position: fixed;
+  top: 47px; /* Adjust based on header height */
+  left: 0px;
+  width: 250px;
+  height: calc(100% - 47px); /* Adjust based on header height */
+  background-color: rgb(223, 223, 223);
+  z-index: 3;
+}
+
+.nav-list{
+  list-style:none ;
+  padding: 5px;
+  margin:0 ;
+}
+
+.nav-item a {
+  padding:9px ;
+  background-color:rgb(217, 207, 207) ;
+  color: azure;
+  border:1px ;
+  border-radius:5px ;
+  display: block;
+  margin-bottom: 10px;
+  text-decoration:none ;
+}
+
+.nav-item a:hover{
+ background-color:white ;
+ box-shadow: inset;
 }
