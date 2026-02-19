@@ -1,6 +1,5 @@
 var toggle = document.getElementById('menu-toggle');
 var sideBar = document.getElementById('side-bar');
-sideBar.style.left = '-250px'; 
 
 toggle.addEventListener('click', toggleMenu);
 
