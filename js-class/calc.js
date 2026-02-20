@@ -1,4 +1,3 @@
-latorScreen.value = '0';
 const calculatorScreen = document.querySelector('.calculator-screen');
 const numbers = document.querySelectorAll('.number');
 const operators = document.querySelectorAll('.operator');

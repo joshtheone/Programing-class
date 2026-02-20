@@ -1,0 +1,31 @@
+.calculator{
+    width: 300px;
+    margin:50px auto;
+    padding: 20px;
+    border: 1px solid whitesmoke ;
+    border-radius: 5px;
+    background-color: aliceblue;
+}
+.calculator-screen{
+   width: 100%; 
+   height: 40px;
+   margin-bottom: 11px;
+   text-align: right;
+   padding: 5px;
+}
+
+.calculator-keys {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+.equal-sign{
+    grid-column: span 3;
+    background-color: blue;
+    color: black;
+    border:none ;
+    border-radius: 5px;
+    padding: 5px;
+}
+
