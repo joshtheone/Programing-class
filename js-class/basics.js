@@ -70,9 +70,29 @@ const student5 = {
     courses: ["Biology", "Chemistry"]
 }
 
+const student6 = {
+    name: "Fiona",
+    age: 20,
+    isEnrolled: true,
+    courses: ["Math", "Computer Science"]
+}
 
-const students = [student1, student2, student3, student4, student5];
+const student7 = {
+    name: "George",
+    age: 26,
+    isEnrolled: false,
+    courses: ["Physics", "Engineering"]
+}
 
+const student8 = {
+    name: "Hannah",
+    age: 22,
+    isEnrolled: true,
+    courses: ["Art", "Design"]
+}
+
+
+const students = [student1, student2, student3, student4, student5, student6, student7, student8];
 
 // Conditions
 
@@ -120,6 +140,7 @@ for (let i = 1; i <= 10; i++) {
 students.forEach(student => {
     console.log("name:" + student.name + " age:" + student.age + " isEnrolled:" + student.isEnrolled);
 });
+
 // while loop
 let count = 1;
 while (count <= 10) {
@@ -136,10 +157,20 @@ console.log(greet("Johnson")); // Hello, Johnson!
 function add(a, b) {
     return a + b;
 }
+
 console.log(add(5, 10)); // 15
 
 function isEven(num) {
     return num % 2 === 0;
-} 
+}
+
+
+// Dom Elements
+
 
 // Events
+
+const searchButton = document.getElementById("searchButton");
+searchButton.addEventListener("click", () => {
+    alert("Search button clicked! Searching for: " + searchInput.value);
+});
