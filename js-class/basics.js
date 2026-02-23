@@ -70,9 +70,29 @@ const student5 = {
     courses: ["Biology", "Chemistry"]
 }
 
+const student6 = {
+    name: "Fiona",
+    age: 20,
+    isEnrolled: true,
+    courses: ["Math", "Computer Science"]
+}
 
-const students = [student1, student2, student3, student4, student5];
+const student7 = {
+    name: "George",
+    age: 26,
+    isEnrolled: false,
+    courses: ["Physics", "Engineering"]
+}
 
+const student8 = {
+    name: "Hannah",
+    age: 22,
+    isEnrolled: true,
+    courses: ["Art", "Design"]
+}
+
+
+const students = [student1, student2, student3, student4, student5, student6, student7, student8];
 
 // Conditions
 
@@ -120,6 +140,7 @@ for (let i = 1; i <= 10; i++) {
 students.forEach(student => {
     console.log("name:" + student.name + " age:" + student.age + " isEnrolled:" + student.isEnrolled);
 });
+
 // while loop
 let count = 1;
 while (count <= 10) {
@@ -136,6 +157,7 @@ console.log(greet("Johnson")); // Hello, Johnson!
 function add(a, b) {
     return a + b;
 }
+
 console.log(add(5, 10)); // 15
 
 function isEven(num) {
@@ -143,7 +165,47 @@ function isEven(num) {
 }
 
 
-// Dom Elements
+// DOM 
+const title = document.getElementById("title");
+title.innerText = student3.name + " is enrolled in " + student3.courses.join(', '); // Charlie
 
+const table = document.getElementById("studentTable");
+
+students.forEach(student => {
+    // console.log("name:" + student.name + " age:" + student.age + " isEnrolled:" + student.isEnrolled);
+
+    const tr = document.createElement("tr");
+
+    // const tdName = document.createElement("td");
+    // tdName.innerText = student.name;
+    // tr.appendChild(tdName);
+
+    // const tdAge = document.createElement("td");
+    // tdAge.innerText = student.age;
+    // tr.appendChild(tdAge);
+
+    // const tdEnrolled = document.createElement("td");
+    // tdEnrolled.innerText = student.isEnrolled ? "Yes" : "No";
+    // tr.appendChild(tdEnrolled);
+
+    for (let index = 0; index < 3; index++) {
+        const td = document.createElement("td");
+        if (index === 0) {
+            td.innerText = student.name;
+        } else if (index === 1) {
+            td.innerText = student.age;
+        } else if (index === 2) {
+            td.innerText = student.isEnrolled ? "Yes" : "No";
+        }
+        tr.appendChild(td);
+    }
+
+    table.appendChild(tr);
+});
 
 // Events
+
+const searchButton = document.getElementById("searchButton");
+searchButton.addEventListener("click", () => {
+    alert("Search button clicked! Searching for: " + searchInput.value);
+});
