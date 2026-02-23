@@ -140,10 +140,6 @@ console.log(add(5, 10)); // 15
 
 function isEven(num) {
     return num % 2 === 0;
-}
-
-
-// Dom Elements
-
+} 
 
 // Events
