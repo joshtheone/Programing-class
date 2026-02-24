@@ -49,7 +49,6 @@ function showStudents(students) {
             }
             tr.appendChild(td);
         }
-
         table.appendChild(tr);
     });
 }

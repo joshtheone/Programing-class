@@ -171,6 +171,5 @@ function isEven(num) {
 // Events
 
 const searchButton = document.getElementById("searchButton");
-searchButton.addEventListener("click", () => {
-    alert("Search button clicked! Searching for: " + searchInput.value);
-});
+s + searchInput.value);
+});earchButton.addEventListener("click", () => {alert("Search button clicked! Searching for: "

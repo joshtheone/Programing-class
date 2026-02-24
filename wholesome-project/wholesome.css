@@ -133,3 +133,10 @@ body{
  background-color:white ;
  box-shadow: inset;
 }
+
+.table{
+  width:100% ;
+  height: 50px;
+  border: 1px;
+  padding: 12px;
+}
