@@ -3,10 +3,46 @@ const table = document.getElementById("studentTable");
 
 const searchInput = document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
+let studentList = [
+
+];
+
+const nameInput = document.getElementById("nameInput");
+const ageInput = document.getElementById("ageInput");
+const enrolledInput = document.getElementById("enrolledInput");
+const submitStudentButton = document.getElementById("submitStudentButton");
+
+
+
+submitStudentButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const name = nameInput.value;
+    const age = ageInput.value;
+    const isEnrolled = enrolledInput.checked;
+
+    // if (name && !isNaN(age)) {
+    studentList.push({
+        name: name,
+        age: age,
+        isEnrolled: isEnrolled,
+        courses: []
+    });
+
+    // Clear existing table rows
+    while (table.firstChild) {
+        table.removeChild(table.firstChild);
+    }
+    showStudents(studentList);
+    nameInput.value = "";
+    ageInput.value = "";
+    enrolledInput.checked = false;
+    // }
+});
+
 
 searchButton.addEventListener("click", () => {
     const searchTerm = searchInput.value.toLowerCase();
-    const filteredStudents = studentsData().filter(student => student.name.toLowerCase().includes(searchTerm));
+    const filteredStudents = studentList.filter(student => student.name.toLowerCase().includes(searchTerm));
 
     // Clear existing table rows
     while (table.firstChild) {
@@ -18,7 +54,7 @@ searchButton.addEventListener("click", () => {
 
 searchInput.addEventListener("input", () => {
     const searchTerm = searchInput.value.toLowerCase();
-    const filteredStudents = studentsData().filter(student => student.name.toLowerCase().includes(searchTerm));
+    const filteredStudents = studentList.filter(student => student.name.toLowerCase().includes(searchTerm));
 
     // Clear existing table rows
     while (table.firstChild) {
@@ -30,7 +66,7 @@ searchInput.addEventListener("input", () => {
 
 
 
-showStudents(studentsData());
+showStudents(studentList);
 
 
 function showStudents(students) {
@@ -40,6 +76,7 @@ function showStudents(students) {
 
         for (let index = 0; index < 3; index++) {
             const td = document.createElement("td");
+            td.classList.add("border", "px-4", "py-2");
             if (index === 0) {
                 td.innerText = student.name;
             } else if (index === 1) {
