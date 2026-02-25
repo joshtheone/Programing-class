@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="h-screen flex items-center justify-center bg-gray-200">
+    
+    <div class="bg-black p-8 rounded-xl shadow-lg">
+      <h1 class="title text-white">Calculator</h1>
+
+      <div class="calculator-body">
+
+        <!-- <div class="">
+          <input type="text" class="calculator-screen border w-full p-4 text-right rounded-lg bg-green-200" value="" disabled />
+        </div> -->
+
+        <div class="w-full bg-white h-[100px] mt-5 rounded-lg  text-right">
+            <div class="" id="op" class="w-full border h-[50px] bg-gray-600"></div>
+            <div class="" id="result" class="w-full border h-[50px] bg-gray-600"></div>
+        </div>
+
+        <div class="calculator-keys mt-5 grid grid-cols-4 gap-4">
+          <button type="button" class="operator bg-white rounded p-4" value="+">+</button>
+          <button type="button" class="operator bg-white rounded p-4" value="-">-</button>
+          <button type="button" class="operator bg-white rounded p-4" value="*">&times;</button>
+          <button type="button" class="operator bg-white rounded p-4" value="/">&divide;</button>
+
+          <button type="button" class="number bg-white rounded p-4" value="7">7</button>
+          <button type="button" class="number bg-white rounded p-4" value="8">8</button>
+          <button type="button" class="number bg-white rounded p-4" value="9">9</button>
+
+          <button type="button" class="number bg-white rounded p-4" value="4">4</button>
+          <button type="button" class="number bg-white rounded p-4" value="5">5</button>
+          <button type="button" class="number bg-white rounded p-4" value="6">6</button>
+          <button type="button" class="number bg-white rounded p-4" value="1">1</button>
+          <button type="button" class="number bg-white rounded p-4" value="2">2</button>
+          <button type="button" class="number bg-white rounded p-4" value="3">3</button>
+
+          <button type="button" class="number bg-white rounded p-4" value="0">0</button>
+          <button type="button" id="decimal" class="bg-white rounded p-4" value=".">.</button>
+          <button type="button" class="clear-btn bg-white rounded p-4" value="">AC</button>
+
+          <button type="button" class="number bg-white rounded p-4" value="00">00</button>
+          <button type="button" class="equal-sign bg-white rounded p-4 col-span-3" value="=">=</button>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="calc.js"></script>
+  </body>
+</html>
