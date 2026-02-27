@@ -4,6 +4,7 @@ const operators = document.querySelectorAll('.operator');
 const equalSign = document.querySelector('.equal-sign');
 const clearBtn = document.querySelector('.clear-btn');
 const decimalBtn = document.getElementById('decimal');
+const deleteBtn = document.getElementById('delete');
 
 const opScreen = document.getElementById('op');
 const resultScreen = document.getElementById('result');
@@ -32,54 +33,73 @@ decimalBtn.addEventListener('click', () => {
 
 operators.forEach(op => {
     op.addEventListener('click', () => {
-        if (currentInput === '') return;
-        if (firstOperand === null) {
-            firstOperand = parseFloat(currentInput);
-        }
+        // if (currentInput === '') return;
+        // if (firstOperand === null) {
+        //     firstOperand = parseFloat(currentInput);
+        // }
 
-        operator = op.value;
-        currentInput = '';
-        updateOpScreen(` ${op.value} `);
+        // operator = op.value;
+        // currentInput = '';
+        updateOpScreen(`${op.value}`);
     });
 });
 
+// equalSign.addEventListener('click', () => {
+
+//     console.log(currentInput, operator, firstOperand);
+//     if (currentInput === '' || operator === null || firstOperand === null) return;
+//     const secondOperand = parseFloat(currentInput);
+//     let result;
+//     switch (operator) {
+//         case '+':
+//             result = firstOperand + secondOperand;
+//             break;
+//         case '-':
+//             result = firstOperand - secondOperand;
+//             break;
+//         case '*':
+//             result = firstOperand * secondOperand;
+//             break;
+//         case '/':
+//             result = firstOperand / secondOperand;
+//             break;
+//     }
+
+//     console.log(result);
+//     // calculatorScreen.value = result;
+//     resultScreen.textContent = `= ${result}`;
+//     currentInput = result.toString();
+//     resultValue = result;
+//     operator = null;
+//     firstOperand = null;
+//     opValue = '';
+// });
+
+
 equalSign.addEventListener('click', () => {
-
-    console.log(currentInput, operator, firstOperand);
-    if (currentInput === '' || operator === null || firstOperand === null) return;
-    const secondOperand = parseFloat(currentInput);
-    let result;
-    switch (operator) {
-        case '+':
-            result = firstOperand + secondOperand;
-            break;
-        case '-':
-            result = firstOperand - secondOperand;
-            break;
-        case '*':
-            result = firstOperand * secondOperand;
-            break;
-        case '/':
-            result = firstOperand / secondOperand;
-            break;
-    }
-
-    console.log(result);
-    // calculatorScreen.value = result;
-    resultScreen.textContent = `= ${result}`;
-    currentInput = result.toString();
-    resultValue = result;
-    operator = null;
-    firstOperand = null;
-    opValue = '';
+    
 });
 
 clearBtn.addEventListener('click', () => {
     currentInput = '';
     operator = null;
     firstOperand = null;
-    // calculatorScreen.value = '0';
+    
+    opValue = '';
+    resultValue = 0;
+    opScreen.textContent = '';
+    resultScreen.textContent = '';
 });
+
+deleteBtn.addEventListener('click', deleteLast);
+
+
+function deleteLast() {
+    if(opValue.length > 0) {
+        opValue = opValue.slice(0, -1);
+        opScreen.textContent = opValue;
+    }
+}
 
 function updateOpScreen(value) {
     if(resultValue !== 0) {
