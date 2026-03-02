@@ -4,10 +4,23 @@ const todoList = document.getElementById("list");
 
 let todos = [];
 
+const storage = localStorage.getItem('todos');
+if(storage !== null){
+    todos = JSON.parse(storage);
+}
+
+console.log(todos);
+showTodos()
+
+
 addBtn.addEventListener('click', () => {
     let value = todoInput.value;
 
     todos.push(createTodo(value));
+
+    const toStore = JSON.stringify(todos);
+    localStorage.setItem('todos', toStore);
+
     createTodoListElement(value);
     todoInput.value = "";
     todoInput.focus();
