@@ -3,122 +3,292 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Advanced Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-top: #fff6df;
+        --bg-bottom: #ffc77e;
+        --panel: #1f232d;
+        --panel-soft: #2a3040;
+        --text-main: #f7f9ff;
+        --text-sub: #b8c1d9;
+        --num-btn: #f8fbff;
+        --num-text: #1f2534;
+        --op-btn: #ffcd6a;
+        --op-text: #3f2b00;
+        --util-btn: #8bd8ff;
+        --util-text: #08253b;
+        --danger-btn: #ff8f80;
+        --danger-text: #4f1b12;
+        --equal-btn: #4de39f;
+        --equal-text: #083b25;
+        --science-btn: #d6dcff;
+        --science-text: #1f2456;
+        --paren-btn: #ffe5ae;
+        --paren-text: #4e3700;
+        --mode-btn: #80ffd8;
+        --mode-text: #003b2b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        color: var(--text-main);
+        background:
+          radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.9) 0, rgba(255, 255, 255, 0) 34%),
+          radial-gradient(circle at 85% 80%, rgba(255, 169, 77, 0.36) 0, rgba(255, 169, 77, 0) 32%),
+          linear-gradient(165deg, var(--bg-top), var(--bg-bottom));
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.15) 1px,
+            transparent 1px
+          ),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+        background-size: 30px 30px;
+        pointer-events: none;
+      }
+
+      .calculator {
+        width: min(96vw, 560px);
+        border-radius: 28px;
+        padding: 18px;
+        background:
+          linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0)),
+          linear-gradient(190deg, var(--panel), var(--panel-soft));
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow:
+          0 28px 45px rgba(32, 18, 0, 0.26),
+          inset 0 1px 0 rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(4px);
+      }
+
+      .calc-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 12px;
+      }
+
+      .calc-title {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .calc-mode {
+        font-size: 0.75rem;
+        letter-spacing: 0.07em;
+        color: var(--text-sub);
+        text-transform: uppercase;
+      }
+
+      .display {
+        border-radius: 18px;
+        padding: 14px 14px 12px;
+        margin-bottom: 12px;
+        background: linear-gradient(180deg, #141821, #0f131b);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      #op {
+        min-height: 1.2em;
+        margin-bottom: 8px;
+        font-family: "Space Mono", monospace;
+        font-size: 0.85rem;
+        color: #85d2ff;
+        text-align: right;
+        white-space: nowrap;
+        overflow-x: auto;
+        scrollbar-width: thin;
+      }
+
+      #result {
+        min-height: 1.3em;
+        font-family: "Space Mono", monospace;
+        font-size: clamp(1.7rem, 6.4vw, 2.4rem);
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-align: right;
+        white-space: nowrap;
+        overflow-x: auto;
+        scrollbar-width: thin;
+      }
+
+      .calculator-keys {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 9px;
+      }
+
+      .btn {
+        appearance: none;
+        border: none;
+        border-radius: 13px;
+        height: 52px;
+        font-family: inherit;
+        font-size: 1.02rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 120ms ease, filter 120ms ease;
+        box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.15);
+      }
+
+      .btn:hover {
+        filter: brightness(1.05);
+      }
+
+      .btn:active {
+        transform: translateY(1px) scale(0.99);
+      }
+
+      .number {
+        background: var(--num-btn);
+        color: var(--num-text);
+      }
+
+      .operator {
+        background: var(--op-btn);
+        color: var(--op-text);
+      }
+
+      .clear-btn {
+        background: var(--danger-btn);
+        color: var(--danger-text);
+      }
+
+      #delete {
+        background: var(--util-btn);
+        color: var(--util-text);
+      }
+
+      #decimal {
+        background: var(--num-btn);
+        color: var(--num-text);
+      }
+
+      .equal-sign {
+        background: var(--equal-btn);
+        color: var(--equal-text);
+      }
+
+      .science-btn {
+        background: var(--science-btn);
+        color: var(--science-text);
+      }
+
+      .paren-btn {
+        background: var(--paren-btn);
+        color: var(--paren-text);
+      }
+
+      .mode-btn {
+        background: var(--mode-btn);
+        color: var(--mode-text);
+      }
+
+      .key-zero {
+        grid-column: span 2;
+      }
+
+      @media (max-width: 520px) {
+        body {
+          padding: 10px;
+        }
+
+        .calculator {
+          border-radius: 22px;
+          padding: 12px;
+        }
+
+        .calculator-keys {
+          gap: 7px;
+        }
+
+        .btn {
+          height: 46px;
+          border-radius: 11px;
+          font-size: 0.95rem;
+        }
+      }
+    </style>
   </head>
-  <body class="h-screen flex items-center justify-center bg-gray-200">
-    <div class="bg-black p-8 rounded-xl shadow-lg">
-      <h1 class="title text-white">Calculator</h1>
+  <body>
+    <main class="calculator" aria-label="Advanced Calculator">
+      <header class="calc-header">
+        <h1 class="calc-title">FluxCalc Pro</h1>
+        <span class="calc-mode">Scientific</span>
+      </header>
 
-      <div class="calculator-body">
-        <!-- <div class="">
-          <input type="text" class="calculator-screen border w-full p-4 text-right rounded-lg bg-green-200" value="" disabled />
-        </div> -->
+      <section class="display">
+        <div id="op"></div>
+        <div id="result">0</div>
+      </section>
 
-        <div
-          class="w-full bg-white h-[100px] mt-5 rounded-lg text-right flex flex-col justify-end p-4"
-        >
-          <div
-            class=""
-            id="op"
-            class="w-full border h-[50px] bg-gray-600"
-          ></div>
-          <div
-            class=""
-            id="result"
-            class="w-full border h-[50px] bg-gray-600 text-xl"
-          ></div>
-        </div>
+      <section class="calculator-keys">
+        <button type="button" class="btn clear-btn" value="">AC</button>
+        <button type="button" class="btn" id="delete" value="del">DEL</button>
+        <button type="button" class="btn operator" value="+/-">+/-</button>
+        <button type="button" class="btn paren-btn" id="open-paren" value="(">(</button>
+        <button type="button" class="btn paren-btn" id="close-paren" value=")">)</button>
 
-        <div class="calculator-keys mt-5 grid grid-cols-4 gap-4">
-          <button type="button" class="clear-btn bg-white rounded p-4" value="">
-            AC
-          </button>
-          <button
-            type="button"
-            class="bg-white rounded p-4"
-            id="delete"
-            value="del"
-          >
-            del
-          </button>
-          <button
-            type="button"
-            class="operator bg-white rounded p-4"
-            value="+/-"
-          >
-            +/-
-          </button>
-          
-          <button type="button" class="operator bg-white rounded p-4" value="/">
-            &divide;
-          </button>
+        <button type="button" class="btn science-btn" data-action="sin">sin</button>
+        <button type="button" class="btn science-btn" data-action="cos">cos</button>
+        <button type="button" class="btn science-btn" data-action="tan">tan</button>
+        <button type="button" class="btn science-btn" data-action="ln">ln</button>
+        <button type="button" class="btn science-btn" data-action="log">log</button>
 
-          <button type="button" class="number bg-white rounded p-4" value="7">
-            7
-          </button>
-          <button type="button" class="number bg-white rounded p-4" value="8">
-            8
-          </button>
-          <button type="button" class="number bg-white rounded p-4" value="9">
-            9
-          </button>
-          <button type="button" class="operator bg-white rounded p-4" value="*">
-            &times;
-          </button>
+        <button type="button" class="btn science-btn" data-action="const-pi">&pi;</button>
+        <button type="button" class="btn science-btn" data-action="const-e">e</button>
+        <button type="button" class="btn science-btn" data-action="square">x&sup2;</button>
+        <button type="button" class="btn science-btn" data-action="sqrt">&radic;x</button>
+        <button type="button" class="btn science-btn" data-action="reciprocal">1/x</button>
 
-          <button type="button" class="number bg-white rounded p-4" value="4">
-            4
-          </button>
-          <button type="button" class="number bg-white rounded p-4" value="5">
-            5
-          </button>
-          <button type="button" class="number bg-white rounded p-4" value="6">
-            6
-          </button>
-          <button type="button" class="operator bg-white rounded p-4" value="-">
-            -
-          </button>
+        <button type="button" class="btn number" value="7">7</button>
+        <button type="button" class="btn number" value="8">8</button>
+        <button type="button" class="btn number" value="9">9</button>
+        <button type="button" class="btn operator" value="/">&divide;</button>
+        <button type="button" class="btn operator" value="^">x^y</button>
 
-          <button type="button" class="number bg-white rounded p-4" value="1">
-            1
-          </button>
-          <button type="button" class="number bg-white rounded p-4" value="2">
-            2
-          </button>
-          <button type="button" class="number bg-white rounded p-4" value="3">
-            3
-          </button>
-          <button type="button" class="operator bg-white rounded p-4" value="+">
-            +
-          </button>
+        <button type="button" class="btn number" value="4">4</button>
+        <button type="button" class="btn number" value="5">5</button>
+        <button type="button" class="btn number" value="6">6</button>
+        <button type="button" class="btn operator" value="*">&times;</button>
+        <button type="button" class="btn operator" value="%">%</button>
 
-          <button type="button" class="operator bg-white rounded p-4" value="%">
-            %
-          </button>
+        <button type="button" class="btn number" value="1">1</button>
+        <button type="button" class="btn number" value="2">2</button>
+        <button type="button" class="btn number" value="3">3</button>
+        <button type="button" class="btn operator" value="-">-</button>
+        <button type="button" class="btn equal-sign" value="=">=</button>
 
-          <button type="button" class="number bg-white rounded p-4" value="0">
-            0
-          </button>
-          <button
-            type="button"
-            id="decimal"
-            class="bg-white rounded p-4"
-            value="."
-          >
-            .
-          </button>
-
-          <button
-            type="button"
-            class="equal-sign bg-orange-600 text-white rounded p-4"
-            value="="
-          >
-            =
-          </button>
-        </div>
-      </div>
-    </div>
+        <button type="button" class="btn mode-btn" id="angle-toggle">DEG</button>
+        <button type="button" class="btn number key-zero" value="0">0</button>
+        <button type="button" class="btn" id="decimal" value=".">.</button>
+        <button type="button" class="btn operator" value="+">+</button>
+      </section>
+    </main>
 
     <script src="calc.js"></script>
   </body>
