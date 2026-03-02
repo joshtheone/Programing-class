@@ -1,53 +1,57 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  </head>
-  <body class="bg-gray-200" >
-    <div class="w-[80%] mx-auto mt-10 bg-white p-8 rounded-xl">
 
-        <div class="flex flex-col items-center mb-10">
-            <h1 id="title" class="text-5xl">Student List</h1>
-        
-            <div class="my-8 flex">
-              <input type="text" class="border rounded-l-lg px-2 py-1 w-[250px]" placeholder="Filter Studens" id="searchInput" />
-              <button id="searchButton" class="bg-stone-600 text-white px-4 py-1 rounded-r-lg">Search</button>
-            </div>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
 
-        <!-- <div class="flex justify-end w-1/2 mx-auto mb-4">
+<body class="bg-gray-200">
+  <div class="w-[80%] mx-auto mt-10 bg-white p-8 rounded-xl">
+
+    <div class="flex flex-col items-center mb-10">
+      <h1 id="title" class="text-5xl">Student List</h1>
+
+      <div class="my-8 flex">
+        <input type="text" class="border rounded-l-lg px-2 py-1 w-[250px]" placeholder="Filter Studens"
+          id="searchInput" />
+        <button id="searchButton" class="bg-stone-600 text-white px-4 py-1 rounded-r-lg">Search</button>
+      </div>
+    </div>
+
+    <!-- <div class="flex justify-end w-1/2 mx-auto mb-4">
             <button id="addStudentButton" class="bg-green-600 text-white px-4 py-1 rounded-lg">Add Student</button>
         </div> -->
 
-        <div class="lex justify-center w-1/2 mx-auto mb-4">
-            <form action="" onsubmit="return false">
-                <input type="text" id="nameInput" placeholder="Name" class="border rounded-lg px-2 py-1 mr-4" />
-                <input type="number" id="ageInput" placeholder="Age" class="border rounded-lg px-2 py-1 mr-4 w-[100px]" />
-                <label for="enrolledInput" class="mr-2">Enrolled:</label>
-                <input type="checkbox" id="enrolledInput" class="mr-4" />
-                <button id="submitStudentButton" class="bg-blue-600 text-white px-4 py-1 rounded-lg">Submit</button>
-            </form>
-        </div>
-
-        <table class="w-1/2 mx-auto">
-          <thead class="bg-stone-600 text-white">
-            <tr>
-              <th class="p-4">Name</th>
-              <th class="p-4">Age</th>
-              <th class="p-4">Enrolled</th>
-            </tr>
-          </thead>
-    
-          <tbody class="divide-y" id="studentTable">
-
-          </tbody>
-        </table>
+    <div class="lex justify-center w-1/2 mx-auto mb-4">
+      <form action="" onsubmit="return false">
+        <input type="text" id="nameInput" placeholder="Name" class="border rounded-lg px-2 py-1 mr-4" />
+        <input type="number" id="ageInput" placeholder="Age" class="border rounded-lg px-2 py-1 mr-4 w-[100px]" />
+        <label for="enrolledInput" class="mr-2">Enrolled:</label>
+        <input type="checkbox" id="enrolledInput" class="mr-4" />
+        <button id="submitStudentButton" class="bg-blue-600 text-white px-4 py-1 rounded-lg">Submit</button>
+      </form>
     </div>
 
-     <script src="basics.js"></script> 
-    <script src="students.js"></script>
-  </body>
+    <table class="w-1/2 mx-auto">
+      <thead class="bg-stone-600 text-white">
+        <tr>
+          <th class="p-4">Name</th>
+          <th class="p-4">Age</th>
+          <th class="p-4">Enrolled</th>
+        </tr>
+      </thead>
+
+      <tbody class="divide-y" id="studentTable">
+
+      </tbody>
+    </table>
+  </div>
+
+  <script src="basics.js"></script>
+  <script src="students.js"></script>
+</body>
+
 </html>

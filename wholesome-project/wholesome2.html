@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Wholesome 2 — Veg & Fruit Market</title>
+    <meta name="description" content="Fresh fruits and vegetables — add to cart, filter, and checkout." />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      /* small tweaks when tailwind is not available */
+      body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+      .product-img { background-size: cover; background-position: center; height: 120px; border-radius: 0.5rem; }
+      .scrollbar { scrollbar-width: thin; }
+    </style>
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-emerald-50 to-green-50 text-gray-800">
+    <header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold">W</div>
+        <div>
+          <h1 class="text-2xl font-extrabold">Wholesome</h1>
+          <div class="text-sm text-gray-600">Fruits & Vegetables Market</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <input id="search" type="search" placeholder="Search produce" class="px-3 py-2 rounded-lg border shadow-sm w-60" />
+        <select id="filter" class="px-3 py-2 rounded-lg border">
+          <option value="all">All</option>
+          <option value="fruit">Fruits</option>
+          <option value="veg">Vegetables</option>
+        </select>
+        <button id="view-cart" class="bg-green-600 text-white px-4 py-2 rounded-lg shadow">Cart (<span id="cart-count">0</span>)</button>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-12 grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <section class="lg:col-span-3">
+        <div id="products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </section>
+
+      <aside id="cart" class="hidden lg:block bg-white rounded-xl p-4 shadow sticky top-6 h-fit">
+        <h2 class="font-bold text-lg mb-2">Your Cart</h2>
+        <div id="cart-items" class="space-y-3 max-h-[420px] overflow-auto scrollbar pr-2"></div>
+        <div class="border-t pt-3 mt-3">
+          <div class="flex justify-between font-semibold"><span>Total</span><span id="cart-total">$0.00</span></div>
+          <button id="checkout" class="mt-3 w-full bg-yellow-500 text-white py-2 rounded-lg">Checkout</button>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Mobile cart drawer -->
+    <div id="cart-drawer" class="fixed inset-0 bg-black/40 hidden items-end sm:items-center justify-center z-40">
+      <div class="bg-white w-full sm:max-w-md rounded-t-xl sm:rounded-xl p-4">
+        <div class="flex items-center justify-between">
+          <h3 class="font-bold">Cart</h3>
+          <button id="close-cart" class="text-sm text-gray-500">Close</button>
+        </div>
+        <div id="cart-items-mobile" class="mt-3 max-h-72 overflow-auto scrollbar pr-2"></div>
+        <div class="border-t pt-3 mt-3">
+          <div class="flex justify-between font-semibold"><span>Total</span><span id="cart-total-mobile">$0.00</span></div>
+          <button id="checkout-mobile" class="mt-3 w-full bg-yellow-500 text-white py-2 rounded-lg">Checkout</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="max-w-6xl mx-auto p-6 text-center text-sm text-gray-600">© 2026 Wholesome — Local fresh produce</footer>
+
+    <script src="wholesome2.js"></script>
+  </body>
+</html>

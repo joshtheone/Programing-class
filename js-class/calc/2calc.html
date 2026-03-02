@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      /* small helper for better button feel using Tailwind directives where supported */
+      .calc-btn { font-weight: 600; }
+    </style>
+  </head>
+  <body class="h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300">
+    <div class="bg-gradient-to-br from-indigo-900 via-indigo-800 to-black p-6 sm:p-10 rounded-2xl shadow-2xl w-[360px] sm:w-[460px]">
+      <div class="flex items-center justify-between mb-3">
+        <h1 class="title text-white text-xl sm:text-2xl font-bold">Calculator</h1>
+        <div class="text-sm text-indigo-200">BODMAS • Advanced</div>
+      </div>
+
+      <div class="calculator-body">
+
+        <div class="w-full bg-gradient-to-b from-gray-800 to-gray-700 rounded-lg p-3">
+            <div id="op" class="w-full h-[40px] text-indigo-200 text-right overflow-hidden text-sm sm:text-base break-words"></div>
+            <div id="result" class="w-full h-[48px] text-white text-right text-2xl sm:text-3xl font-semibold"></div>
+            <div class="mt-2 flex items-center justify-between text-xs text-indigo-300">
+              <div class="font-medium">History</div>
+              <button id="clear-history" class="text-indigo-100/60 hover:text-indigo-50">Clear</button>
+            </div>
+            <div id="history" class="w-full max-h-[120px] overflow-auto text-indigo-100 text-right text-sm mt-1 pr-1"></div>
+        </div>
+
+        <div class="calculator-keys mt-5 grid grid-cols-4 gap-3">
+          <button type="button" id="clear" class="clear-btn bg-red-100 text-red-700 rounded p-3">AC</button>
+          <button type="button" id="del" class="bg-white rounded p-3">DEL</button>
+          <button type="button" id="percent" class="bg-white rounded p-3" value="%">%</button>
+          <button type="button" class="operator bg-white rounded p-3" value="/">&divide;</button>
+
+          <button type="button" class="number bg-white rounded p-3 calc-btn" value="7">7</button>
+          <button type="button" class="number bg-white rounded p-3 calc-btn" value="8">8</button>
+          <button type="button" class="number bg-white rounded p-3 calc-btn" value="9">9</button>
+          <button type="button" class="operator bg-white rounded p-3 calc-btn" value="*">&times;</button>
+
+          <button type="button" class="number bg-white rounded p-3 calc-btn" value="4">4</button>
+          <button type="button" class="number bg-white rounded p-3 calc-btn" value="5">5</button>
+          <button type="button" class="number bg-white rounded p-3 calc-btn" value="6">6</button>
+          <button type="button" class="operator bg-white rounded p-3 calc-btn" value="-">-</button>
+
+          <button type="button" class="number bg-white rounded p-3 calc-btn" value="1">1</button>
+          <button type="button" class="number bg-white rounded p-3 calc-btn" value="2">2</button>
+          <button type="button" class="number bg-white rounded p-3 calc-btn" value="3">3</button>
+          <button type="button" class="operator bg-white rounded p-3 calc-btn" value="+">+</button>
+
+          <button type="button" id="plusminus" class="bg-white rounded p-3 calc-btn">+/-</button>
+          <button type="button" class="number bg-white rounded p-3 calc-btn" value="0">0</button>
+          <button type="button" id="decimal" class="bg-white rounded p-3 calc-btn" value=".">.</button>
+          <button type="button" class="equal-sign bg-gradient-to-br from-yellow-500 to-yellow-400 text-white rounded p-3 calc-btn" value="=">=</button>
+
+          <button type="button" class="paren bg-white rounded p-3 col-span-2 calc-btn" value="(">(</button>
+          <button type="button" class="paren bg-white rounded p-3 calc-btn" value=")">)</button>
+          <button type="button" class="operator bg-white rounded p-3 calc-btn" value="^">^</button>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="2calc.js"></script>
+  </body>
+</html>

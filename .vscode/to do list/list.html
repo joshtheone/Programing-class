@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do app</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        ul { padding:0; list-style:none; }
+        li { margin: 5px 0; display:flex; align-items:center; gap: 10px; }
+        .done {text-decoration: line-through; color: #888;}
+        button { margin: 0 5px; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .add-btn { background-color: #007bff; color: white; }
+        .add-btn:hover { background-color: #0056b3; }
+        .done-btn { background-color: #28a745; color: white; }
+        .done-btn:hover { background-color: #218838; }
+        .delete-btn { background-color: #dc3545; color: white; }
+        .delete-btn:hover { background-color: #c82333; }
+        input { width: 100%; padding: 8px; box-sizing:border-box; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; }
+        input:focus { outline: none; border-color: #007bff; box-shadow: 0 0 5px rgba(0,123,255,0.5); }
+        .task-section { flex:1; min-width: 250px; }
+    </style>
+</head>
+
+<body>
+    <h1>To‑Do List</h1>
+
+    <!-- two columns for inputs and lists -->
+    <div style="display:flex; gap:20px; flex-wrap:wrap; max-width:700px;">
+        <div class="task-section">
+            <h2>List 1</h2>
+            <ul id="taskList1">
+                <!-- tasks added here -->
+            </ul>
+            <div style="display:flex; gap:10px;">
+                <input type="text" id="taskInput1" placeholder="Write a task here...">
+                <button id="addBtn1" class="add-btn">Add</button>
+            </div>
+        </div>
+
+        <div class="task-section">
+            <h2>List 2</h2>
+            <ul id="taskList2">
+                <!-- tasks added here -->
+            </ul>
+            <div style="display:flex; gap:10px;">
+                <input type="text" id="taskInput2" placeholder="Write a task here...">
+                <button id="addBtn2" class="add-btn">Add</button>
+            </div>
+        </div>
+    </div>
+
+
+   <!-- Link External JS -->
+     <script src="list.js"></script>
+
+</body>
+</html>
+
+        
